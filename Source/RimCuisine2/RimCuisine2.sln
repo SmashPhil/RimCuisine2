@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimCuisine2", "RimCuisine2\RimCuisine2.csproj", "{7E137A62-9389-4C4B-BD40-1F48F8438311}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E137A62-9389-4C4B-BD40-1F48F8438311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E137A62-9389-4C4B-BD40-1F48F8438311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E137A62-9389-4C4B-BD40-1F48F8438311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E137A62-9389-4C4B-BD40-1F48F8438311}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2741AB6-2B97-40F0-9B54-3CA6305D2062}
+	EndGlobalSection
+EndGlobal
