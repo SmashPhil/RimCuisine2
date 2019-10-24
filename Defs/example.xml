@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<!-- Improved NutrientPasteDispenser -->
+	<!-- Read comments for modding info -->
+	<ThingDef ParentName="BuildingBase">
+		<!-- Name of def (Must be unique) -->
+		<defName>ExampleRefillable</defName>
+		<!-- ingame name -->
+		<label>Example</label>
+		<!-- ingame description -->
+		<description>Check Me Out</description>
+		<!-- Don't Touch -->
+		<thingClass>Building_NutrientPasteDispenser</thingClass>
+		
+		<graphicData>
+			<!-- Filepath for texture -->
+			<texPath>Things/Building/Production/NutrientDispenser</texPath>
+			<!-- Don't Touch -->
+			<graphicClass>Graphic_Multi</graphicClass>
+			<!-- Color of Building (Red,Green,Blue) -->
+			<color>(220,220,220)</color>
+			<!-- Don't Touch -->
+			<shaderType>CutoutComplex</shaderType>
+			<!-- Size of Drawn Image -->
+			<drawSize>(1,1)</drawSize>
+			
+			<!-- Don't Touch -->
+			<damageData>
+				<rect>(0.02,0.25,2.96,2.85)</rect>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+			<shadowData>
+				<volume>(2.87,0.75,3.05)</volume>
+				<offset>(0,0,0.38)</offset>
+			</shadowData>
+		</graphicData>
+		
+		<!-- Size of building (Should be same as Draw Size) -->
+		<size>(1,1)</size>
+		<!-- Interaction Cell from center of building -->
+		<interactionCellOffset>(0,0,1)</interactionCellOffset>
+		
+		<!-- Layer the texture is drawn on -->
+		<altitudeLayer>Building</altitudeLayer>
+		<!-- Pawns able to pass through? -->
+		<passability>Impassable</passability>
+		<!-- Building blocks wind -->
+		<blockWind>true</blockWind>
+		<!-- Don't Touch -->
+		<fillPercent>1</fillPercent>
+		
+		<!-- Building Stats -->
+		<statBases>
+			<WorkToBuild>1</WorkToBuild>
+			<MaxHitPoints>400</MaxHitPoints>
+			<Flammability>0.4</Flammability>
+		</statBases>
+		
+		<building>
+			<!-- Do pawns go to this for food -->
+			<isMealSource>true</isMealSource>
+			<!-- Needs Hopper to work? -->
+			<wantsHopperAdjacent>false</wantsHopperAdjacent>
+			<!-- Cost of meal -->
+			<nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+			<!-- Sound when dispensed -->
+			<soundDispense>Ingest_Beer_Start</soundDispense>
+		</building>
+		
+		<!-- Power Properties  -->
+		<comps>
+			<li Class="CompProperties_Power">
+			<!-- Don't Touch -->
+			<compClass>CompPowerTrader</compClass>
+			<!-- Power Cost -->
+			<basePowerConsumption>500</basePowerConsumption>
+			</li>
+			
+			<!-- Flick on / off power -->
+			<li Class="CompProperties_Flickable"/>
+			<!-- Breaks down and needs repair -->
+			<li Class="CompProperties_Breakdownable"/>
+			
+			<li Class="RimCuisine2.CompProperties_Refillable">
+				<itemCapacity>75</itemCapacity>
+				<autoRefillCount>50</autoRefillCount>
+				<drawOutOfItemsOverlay>false</drawOutOfItemsOverlay>
+			</li>
+		</comps>
+		
+		<!-- Build cost -->
+		<costList>
+			<Steel>250</Steel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<!-- Preferred Don't Touch -->
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<!-- Needed, so Don't Touch -->
+		<hasInteractionCell>true</hasInteractionCell>
+		<!-- Terrain needed to be placed -->
+		<terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+		<!-- Where Building is accessible -->
+		<designationCategory>Production</designationCategory>
+		<!-- Effect when built -->
+		<constructEffect>ConstructMetal</constructEffect>
+		<!-- Hotkey to select / build -->
+		<designationHotKey>Misc6</designationHotKey>
+		<!-- Don't Touch -->
+		<canOverlapZones>false</canOverlapZones>
+		<!-- Skill needed (construction) to build -->
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		
+		<!-- Research needed to unlock -->
+		<researchPrerequisites>
+			<li>NutrientPaste</li>
+		</researchPrerequisites>
+
+		<!-- Custom Properties -->
+		<modExtensions>
+			<li Class="RimCuisine2.NPDModExtension">
+				<!-- Meal Dispensed (Chosen at random if more than 1) -->
+				<customMeal>
+					<li>Beer</li>
+				</customMeal>
+				<!-- Ingredients hidden from colonists? -->
+				<mysteryIngredients>false</mysteryIngredients>
+				<!-- 
+				Specific List of Ingredients for NPD?
+				Leave empty / do not include if you want normal NPD item cost.
+				You can obtain the ThingDef names from Mods/Core/Defs/ThingDefs_Items/
+				and either raw plant, implicit meat defs, or animal products. For list of
+				all ingestible foods look at Food.txt in this folder
+				-->
+				
+				<!-- Total amount will just be x10 of the nutrition value here -->
+				<ingredientList>
+					<Chocolate>0.4</Chocolate> <!-- eg. 4 chocolate required -->
+					<Milk>0.8</Milk>
+				</ingredientList>
+					
+			</li>
+		</modExtensions>
+		
+	</ThingDef>
+
+</Defs>
