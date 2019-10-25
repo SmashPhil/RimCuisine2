@@ -83,17 +83,14 @@ namespace RimCuisine2
             this.flickComp = this.parent.GetComp<CompFlickable>();
         }
 
-        public override void PostDraw()
+        /*public override void PostDraw()
         {
             base.PostDraw();
-            foreach(int i in items)
+            if(!this.HasEnoughItems())
             {
-                if(!this.HasEnoughItems() && this.Props.drawOutOfItemsOverlay)
-                {
-                    this.parent.Map.overlayDrawer.DrawOverlay(this.parent, OverlayTypes.OutOfFuel);
-                }   
+                this.parent.Map.overlayDrawer.DrawOverlay(this.parent, OverlayTypes.OutOfFuel);
             }
-        }
+        }*/
 
         public override string CompInspectStringExtra()
         {

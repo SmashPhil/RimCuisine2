@@ -60,7 +60,11 @@
 		
 		<building>
 			<!-- Do pawns go to this for food -->
-			<isMealSource>true</isMealSource>
+			<!--<isMealSource>true</isMealSource>-->
+			
+			<joyKind>Gluttonous</joyKind>
+			<!-- Can be Social, Gluttonous, or even Chemical -->
+			
 			<!-- Needs Hopper to work? -->
 			<wantsHopperAdjacent>false</wantsHopperAdjacent>
 			<!-- Cost of meal -->
@@ -123,6 +127,7 @@
 				<!-- Meal Dispensed (Chosen at random if more than 1) -->
 				<customMeal>
 					<li>Beer</li>
+					<li>MealSimple</li>
 				</customMeal>
 				<!-- Ingredients hidden from colonists? -->
 				<mysteryIngredients>false</mysteryIngredients>

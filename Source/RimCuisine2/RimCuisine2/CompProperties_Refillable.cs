@@ -17,7 +17,5 @@ namespace RimCuisine2
         public bool drawOutOfItemsOverlay;
 
         public ThingFilter itemFilter;
-
-        private Texture2D dispenserEmptyIcon;
     }
 }

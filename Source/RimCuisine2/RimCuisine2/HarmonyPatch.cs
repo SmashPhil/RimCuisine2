@@ -163,7 +163,6 @@ namespace RimCuisine2
         {
             if (!(__instance.def.GetModExtension<NPDModExtension>() is null))
             {
-                float num = 0f;
                 bool empty = __instance.def.GetModExtension<NPDModExtension>().ingredientList is null ||
                     !__instance.def.GetModExtension<NPDModExtension>().ingredientList.Any();
                 if (!empty && !(__instance.def.GetCompProperties<CompProperties_Refillable>() is null))
@@ -212,17 +211,13 @@ namespace RimCuisine2
         private static IEnumerable<CodeInstruction> BadDispenserReportModified(IEnumerable<CodeInstruction> instructions, ILGenerator ilg)
         {
             List<CodeInstruction> instructionList = instructions.ToList();
-            bool firstcall = true;
             for (int i = 0; i < instructionList.Count; i++)
             {
                 CodeInstruction instruction = instructionList[i];
 
-                if(instruction.opcode == OpCodes.Call && firstcall)
+                if(instruction.opcode == OpCodes.Call && instruction.operand == AccessTools.Method(type: typeof(AlertReport), parameters: new System.Type[] { typeof(IEnumerable<Thing>) }, name: nameof(AlertReport.CulpritsAre)))
                 {
-                    yield return instruction;
                     yield return new CodeInstruction(opcode: OpCodes.Call, operand: AccessTools.Method(type: typeof(RimCuisineHarmony), name: nameof(RimCuisineHarmony.ModifyBadDispensers)));
-                    firstcall = false;
-                    instruction = instructionList[++i];
                 }
                 yield return instruction;
             }

@@ -54,8 +54,6 @@ namespace RimCuisine2
             int quantity = 0;
             if (found)
             {
-                Log.Message("found : " + i);
-                Log.Message("-> " + refuelable.TryGetComp<CompRefillable>().items.Count);
                 item = ingredients[i].thingDef;
                 quantity = refuelable.TryGetComp<CompRefillable>().CountToRefill(i);
             }
