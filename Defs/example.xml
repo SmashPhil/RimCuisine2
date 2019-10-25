@@ -133,6 +133,7 @@
 				and either raw plant, implicit meat defs, or animal products. For list of
 				all ingestible foods look at Food.txt in this folder
 				-->
+				<jobString>Grabbing a cold one with the boys</jobString>
 				
 				<!-- Total amount will just be x10 of the nutrition value here -->
 				<ingredientList>

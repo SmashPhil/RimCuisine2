@@ -60,6 +60,7 @@
     <Compile Include="NPDModExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefillWorkGiverUtility.cs" />
+    <Compile Include="WorkGiverDefOfCuisine.cs" />
     <Compile Include="WorkGiver_Refill.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

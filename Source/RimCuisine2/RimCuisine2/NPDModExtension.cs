@@ -12,6 +12,8 @@ namespace RimCuisine2
 
         public List<IngredientAndCostClass> ingredientList = new List<IngredientAndCostClass>();
 
+        public string jobString;
+
         public Thing FindNextIngredientInHopper(List<IntVec3> cachedCells, Building_NutrientPasteDispenser instance, float[] nutrition)
         {
             foreach (IntVec3 c in cachedCells)

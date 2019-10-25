@@ -31,6 +31,8 @@ namespace RimCuisine2
             return items[index] == this.Props.itemCapacity;
         }
 
+        public bool IsEmpty => items.All(x => x == 0);
+
         public int CountToRefill(int index)
         {
             return this.Props.itemCapacity - items[index];
@@ -117,7 +119,6 @@ namespace RimCuisine2
                 return;
             }
             this.items[index] -= amount;
-            Log.Message("-> " + this.items[index] + " at index " + index);
             if(this.items[index] <= 0)
             {
                 this.items[index] = 0;
@@ -200,6 +201,33 @@ namespace RimCuisine2
             Scribe_Collections.Look(ref items, "items");
         }
 
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
+        {
+            base.PostDestroy(mode, previousMap);
+            if(!(previousMap is null) && !this.IsEmpty)
+            {
+                List<ThingDef> thingDefs = new List<ThingDef>();
+                List<int> amount = new List<int>();
+                List<IngredientAndCostClass> ingredients = this.parent.def.GetModExtension<NPDModExtension>().ingredientList;
+
+                for(int i = 0; i < items.Count; i++)
+                {
+                    if(items[i] > 0)
+                    {
+                        thingDefs.Add(ingredients[i].thingDef);
+                        amount.Add(items[i]);
+                    }
+                }
+                List<Thing> things = new List<Thing>();
+                for(int i = 0; i < thingDefs.Count; i++)
+                {
+                    things.Add(ThingMaker.MakeThing(thingDefs[i]));
+                    things[i].stackCount = amount.Pop();
+                }
+                things.ForEach(x => GenPlace.TryPlaceThing(x, this.parent.Position, previousMap, ThingPlaceMode.Near, null, null));
+            }
+        }
+
         public List<int> items = new List<int>();
 
         private CompFlickable flickComp;
@@ -207,11 +235,5 @@ namespace RimCuisine2
         public const string RefilledSignal = "Refilled";
 
         public const string RanOutOfItems = "RanOutOfItems";
-
-        private static readonly Vector2 FillBarSize = new Vector2(1f, 0.2f);
-
-        private static readonly Material FillBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.6f, 0.56f, 0.13f), false);
-
-        private static readonly Material FillBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.3f, 0.3f, 0.3f), false);
     }
 }

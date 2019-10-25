@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<WorkGiverDef>
+		<defName>Refill</defName>
+		<label>Refill food buildings</label>
+		<giverClass>RimCuisine2.WorkGiver_Refill</giverClass>
+		<workType>Hauling</workType>
+		<verb>refill</verb>
+		<gerund>refilling</gerund>
+		<priorityInType>40</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+</Defs>

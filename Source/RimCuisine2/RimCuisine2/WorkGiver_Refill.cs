@@ -14,9 +14,21 @@ namespace RimCuisine2
             }
         }
 
-        public override PathEndMode PathEndMode => PathEndMode.Touch;
+        public override PathEndMode PathEndMode
+        {
+            get
+            {
+                return PathEndMode.Touch;
+            }
+        }
 
-        public JobDef JobStandard => JobDefOfCuisine.Refill;
+        public JobDef JobStandard
+        {
+            get
+            {
+                return JobDefOfCuisine.Refill;
+            }
+        }
 
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
